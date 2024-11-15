@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.container {
+    @apply w-[90%] max-w-[1000px]
+}

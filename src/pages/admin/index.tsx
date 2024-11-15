@@ -1,9 +1,9 @@
 
 
-const PagesUser = () => {
+const PagesAdmin = () => {
   return (
     <div>PagesUser</div>
   )
 }
 
-export default PagesUser
+export default PagesAdmin
