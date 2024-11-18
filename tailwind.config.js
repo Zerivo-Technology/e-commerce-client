@@ -10,7 +10,7 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
         playwrite: ['Playwrite SK', 'sans-serif'],
         pridi: ['Pridi', 'sans-serif'],
-        monserat : ['Monserat', 'sans-serif']
+        monserat : ['Montserrat', 'sans-serif']
       },
       colors : {
         'primary-color' : '#23A6F0',
