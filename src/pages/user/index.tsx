@@ -112,28 +112,32 @@ const PagesUser = () => {
   ];
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="pt-24">
-        <div className="box relative rounded-[20px] flex flex-row items-center px-24 w-[1292px] h-[622px] bg-gradient-to-r from-[#96E9FB] to-[#ABECD6] overflow-hidden">
-          <div className="flex text-left flex-col gap-[30px] font-monserat">
-            <div className="text-hover-color font-bold">SUMMER 2020</div>
-            <div className="text-[58px] font-bold">NEW COLLECTION</div>
-            <div className="max-w-[369px] w-fit text-xl">
+      <div className="pt-24 mx-4" id="header">
+        <div className="box relative rounded-[20px] flex flex-col md:flex-row items-center px-6 md:px-24 w-full md:w-[1292px] h-auto md:h-[622px] bg-gradient-to-r from-[#96E9FB] to-[#ABECD6] overflow-hidden">
+          <div className="flex text-left flex-col gap-[30px] font-monserat px-4 py-8 md:p-0 z-10">
+            <div className="text-hover-color font-bold text-lg md:text-base">
+              SUMMER 2020
+            </div>
+            <div className="text-[32px] md:text-[58px] font-bold">
+              NEW COLLECTION
+            </div>
+            <div className="max-w-full md:max-w-[369px] w-fit text-base md:text-xl">
               We know how large objects will act, but things on a small scale.
             </div>
             <Button
               label="SHOP NOW"
               severity="primary"
-              className="flex w-fit px-8 rounded-[5px] font-bold"
+              className="flex w-fit md:w-fit px-8 rounded-[5px] font-bold"
             />
           </div>
           <img
             src={header}
             alt=""
-            className="absolute bottom-0 right-[-180px] max-h-full max-w-full object-contain"
+            className="absolute bottom-0 right-0 md:right-[-180px] max-h-full max-w-full object-contain z-0"
           />
         </div>
       </div>
-      <div className="grid grid-cols-6 items-center gap-[30px] py-14">
+      <div className="grid grid-cols-6 items-center mx-5 gap-[30px] py-14">
         <img className="w-[102.99px]" src={HooliIcon} alt="" />
         <img className="w-[102.99px]" src={LyftIcon} alt="" />
         <img className="w-[102.99px]" src={Brand3} alt="" />
@@ -142,14 +146,17 @@ const PagesUser = () => {
         <img className="w-[102.99px]" src={RedditIcon} alt="" />
       </div>
 
-      <div className="relative flex flex-row gap-2 max-h-[572px]">
+      <div
+        className="relative flex flex-col gap-2 md:flex-row md:max-h-[572px] max-h-none"
+        id="product-of-the-week"
+      >
         <div className="relative flex-grow">
           <img
-            className="w-[611px] h-full object-cover"
+            className=" h-full object-cover w-full md:w-[611px]"
             src={productA}
             alt=""
           />
-          <div className="absolute bottom-0 flex flex-col gap-3 left-0 w-[420px] bg-[#2D8BC0BF] text-white p-14">
+          <div className="absolute bottom-0 flex flex-col gap-3 left-0 w-[420px] max-w-full bg-[#2D8BC0BF] text-white p-14">
             <span className="font-monserat font-bold text-2xl max-w-[199px]">
               Top Product Of the Week
             </span>
@@ -167,7 +174,7 @@ const PagesUser = () => {
               src={productB}
               alt=""
             />
-            <div className="absolute bottom-0 left-0 flex flex-col gap-4 text-white p-9 bg-[#2D8BC0BF] w-[420px]">
+            <div className="absolute bottom-0 left-0 flex flex-col gap-4 text-white p-9 bg-[#2D8BC0BF] w-[420px] max-w-full">
               <span className="font-monserat text-xl max-w-[258px]">
                 Top Product Of the Week
               </span>
@@ -184,7 +191,7 @@ const PagesUser = () => {
               src={productC}
               alt=""
             />
-            <div className="absolute bottom-0 left-0 flex flex-col gap-4 text-white p-9 bg-[#2D8BC0BF] w-[420px]">
+            <div className="absolute bottom-0 left-0 flex flex-col gap-4 text-white p-9 bg-[#2D8BC0BF] w-[420px] max-w-full">
               <span className="font-monserat text-xl max-w-[258px]">
                 Top Product Of the Week
               </span>
@@ -198,7 +205,7 @@ const PagesUser = () => {
         </div>
       </div>
 
-      <div className="p-28 flex flex-col gap-16">
+      <div className="p-28 xs:p-8 flex flex-col gap-16">
         <div className="flex flex-col gap-3 items-center font-monserat">
           <h4 className="text-xl font-light text-second-text-color">
             Featured Products
@@ -209,11 +216,12 @@ const PagesUser = () => {
           </p>
         </div>
 
-        <div className="image-container grid grid-cols-5 gap-5">
+        <div className="image-container xs:grid-cols-2 grid md:grid-cols-5 gap-5 mx-auto">
           {cardData.map((card, index) => (
             <Card
               key={index}
               img={card.img}
+              imgClassName="w-[170px]"
               title={card.title}
               price={card.price}
               type="price"
@@ -225,12 +233,12 @@ const PagesUser = () => {
           <Button
             label="LOAD MORE PRODUCTS"
             outlined
-            className="!text-primary-color !px-6 !rounded-[5px] !border-primary-color font-bold text-sm hover:bg-primary-color hover:!text-white"
+            className="!text-primary-color !px-6 !rounded-[5px] !border-primary-color font-bold text-sm hover:!bg-primary-color hover:!text-white"
           />
         </div>
       </div>
 
-      <div className=" flex flex-col gap-16">
+      <div className=" flex flex-col gap-16 xs:mt-5 mt-0">
         <div className="flex flex-col gap-3 items-center font-monserat">
           <h4 className="text-xl font-light text-second-text-color">
             Featured Products
@@ -241,7 +249,7 @@ const PagesUser = () => {
           </p>
         </div>
 
-        <div className="flex flex-row gap-28">
+        <div className="flex md:flex-row gap-28 xs:flex-col xs:mx-auto xs:gap-16">
           {serviceData.map((service, index) => (
             <div key={index}>
               <Card
@@ -259,61 +267,61 @@ const PagesUser = () => {
         </div>
       </div>
 
-      <div className="flex flex-row py-28">
-        <div className="flex flex-row gap-3 px-14">
+      <div className="flex flex-col md:flex-row py-10 md:py-28">
+        <div className="flex flex-col md:flex-row gap-3 px-4 md:px-14">
           <img
             src={featuredA}
-            className="w-[217px] h-[498px] object-cover"
+            className="w-full md:w-[217px] h-auto md:h-[498px] object-cover"
             alt=""
           />
           <img
             src={featuredB}
-            className="w-[217px] h-[498px] object-cover"
+            className="w-full md:w-[217px] h-auto md:h-[498px] object-cover"
             alt=""
           />
         </div>
 
-        <div className="flex flex-col p-20 items-start justify-center font-monserat ">
-          <h5 className="text-primary-color font-bold text-base">
+        <div className="flex flex-col p-4 md:p-20 items-start justify-center font-monserat">
+          <h5 className="text-primary-color font-bold text-sm md:text-base">
             Featured Products
           </h5>
-          <h2 className="text-[40px] font-bold text-dark-background">
+          <h2 className="text-[24px] md:text-[40px] font-bold text-dark-background">
             We love what we do
           </h2>
-          <p className="text-light-text-color max-w-[351px]">
+          <p className="text-light-text-color max-w-full md:max-w-[351px]">
             Problems trying to resolve the conflict between the two major realms
             of Classical physics: Newtonian mechanics.
           </p>
         </div>
       </div>
 
-      <div className="relative w-full min-h-[554px]  bg-[#00b5da] flex overflow-hidden">
+      <div className="relative w-full min-h-[554px] bg-[#00b5da] flex overflow-hidden">
         <img
-          className="absolute top-0 left-[320px] w-full h-full object-cover object-right-top"
+          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full object-cover object-right-top"
           src={subscribeBG}
           alt="subscribe"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white p-4 flex flex-row gap-20 py-16 px-20 w-[1128px] justify-center items-center">
-            <div className="flex flex-col gap-5">
-              <div className="flex justify-center">
+          <div className="bg-white mx-10 flex flex-col md:flex-row gap-5 md:gap-20 py-8 px-4 md:py-16 md:px-24 sm:px-24 w-full max-w-[1128px] justify-center items-center">
+            <div className="flex flex-col gap-5 items-center md:items-center xs:items-start ">
+              <div className="flex justify-center mx-auto">
                 <span className="text-yellow-500">&#9733;</span>
                 <span className="text-yellow-500">&#9733;</span>
                 <span className="text-yellow-500">&#9733;</span>
                 <span className="text-yellow-500">&#9733;</span>
                 <span className="text-gray-300">&#9733;</span>
               </div>
-              <h6 className="font-monserat font-bold max-w-[238px] text-light-text-color text-center text-sm leading-[24px]">
+              <h6 className="font-monserat font-bold max-w-[238px] text-light-text-color xs:text-left md:text-center text-sm leading-[24px]">
                 Slate helps you see how many more days you need to work to reach
                 your financial goal.
               </h6>
               <div className="flex flex-row gap-2 items-center justify-center font-monserat">
                 <img
                   src={profile}
-                  className="rounded-full w-[50px] h-[50px] object-cover "
+                  className="rounded-full mx-auto w-[50px] h-[50px] object-cover"
                   alt="profile"
                 />
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center">
                   <h6
                     id="username"
                     className="text-sm text-primary-color font-bold"
@@ -331,29 +339,29 @@ const PagesUser = () => {
             </div>
             <span
               id="separator"
-              className="border border-light-gray-2 h-[298px]"
+              className="hidden md:block border border-light-gray-2 h-[298px]"
             ></span>
             <div className="flex flex-col justify-start items-center gap-5">
-              <p className="text-disabled-text font-monserat">
+              <p className="text-disabled-text font-monserat text-center md:text-left">
                 Problems trying to resolve the conflict
               </p>
-              <h2 className="text-[40px] font-bold font-monserat text-dark-background max-w-[374px] text-center leading-[50px]">
+              <h2 className="text-[24px] md:text-[40px] font-bold font-monserat text-dark-background max-w-[374px] text-center leading-[30px] md:leading-[50px]">
                 Subscribe For Latest Newsletter
               </h2>
-              <div className="flex items-center border rounded-md overflow-hidden font-monserat max-w-[355px]">
+              <div className="flex flex-row items-center border rounded-md overflow-hidden font-monserat max-w-[355px] w-full">
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="px-4 py-5 flex-1 focus:outline-none text-sm"
+                  className="px-4 py-3 md:py-5 flex-1 focus:outline-none text-sm"
                 />
                 <button
                   type="submit"
-                  className="bg-primary-color text-sm text-white px-5 py-5 hover:bg-blue-600 transition"
+                  className="bg-primary-color text-sm text-white px-5 py-3 md:py-5 hover:bg-blue-600 transition w-full md:w-auto"
                 >
                   Subscribe
                 </button>
               </div>
-              <p className="text-light-text-color font-monserat">
+              <p className="text-light-text-color font-monserat text-center md:text-left">
                 Problems trying to resolve the conflict
               </p>
             </div>
