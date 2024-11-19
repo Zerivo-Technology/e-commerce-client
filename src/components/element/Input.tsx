@@ -4,7 +4,7 @@ interface InputProps {
   /**
    * The value of the input
    */
-  value: string;
+  value: string | number;
 
   /**
    * Function to call when the input value changes
@@ -19,7 +19,7 @@ interface InputProps {
   /**
    * Function to call when the input value changes
    */
-  onChange: (value: string) => void;
+  onChange: (value: string | number) => void;
 
   /**
    * Set the width of the input
@@ -29,7 +29,12 @@ interface InputProps {
   /**
    * Set the type of the input
    */
-  type?: 'email' | 'text' | 'number' | 'password';
+  type?: 'email' | 'text' | 'number' | 'password' | 'range';
+
+  /**
+   * Additional class names for the input
+   */
+  className?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -39,14 +44,21 @@ const Input: React.FC<InputProps> = ({
   width,
   mandatory = false,
   type = 'text',
+  className,
 }) => {
   return (
     <input
       type={type}
       value={value}
       required={mandatory}
-      onChange={(e) => onChange(e.target.value)}
-      className="border font-monserat text-sm bg-[#F9F9F9] border-gray-300 rounded-[5px] px-5 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      onChange={(e) =>
+        onChange(type === 'range' ? Number(e.target.value) : e.target.value)
+      }
+      className={`${className} ${
+        type === 'range'
+          ? 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer'
+          : 'border font-monserat text-sm bg-[#F9F9F9] border-gray-300 rounded-[5px] px-5 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500'
+      }`}
       placeholder={placeholder}
       style={{ width: width || '100%' }}
     />
