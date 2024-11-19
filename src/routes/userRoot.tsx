@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const PagesUser = lazy(() => import('@/pages/user'));
 const LoginUser = lazy(() => import('@/pages/user/auth/Login'));
+const Shop = lazy(() => import('@/pages/user/shop/Shop'));
 
 const UserRoot = () => {
   return (
@@ -37,6 +38,14 @@ const UserRoot = () => {
             element={
               <Suspense fallback={<Loading />}>
                 <LoginUser mode="registration" />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/shop/clothing"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Shop />
               </Suspense>
             }
           />
