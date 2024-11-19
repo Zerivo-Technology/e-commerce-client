@@ -11,6 +11,8 @@ import {
   IconHack,
   IconEasy,
   IconConcrete,
+  starActive,
+  starInactive,
 } from '@/assets/icons';
 import {
   producta as productA,
@@ -297,19 +299,19 @@ const PagesUser = () => {
 
       <div className="relative w-full min-h-[554px] bg-[#00b5da] flex overflow-hidden">
         <img
-          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full object-cover object-right-top"
+          className="absolute top-0 left-[1100px] transform -translate-x-1/2 w-full h-full object-cover object-right-top"
           src={subscribeBG}
           alt="subscribe"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="bg-white mx-10 flex flex-col md:flex-row gap-5 md:gap-20 py-8 px-4 md:py-16 md:px-24 sm:px-24 w-full max-w-[1128px] justify-center items-center">
             <div className="flex flex-col gap-5 items-center md:items-center xs:items-start ">
-              <div className="flex justify-center mx-auto">
-                <span className="text-yellow-500">&#9733;</span>
-                <span className="text-yellow-500">&#9733;</span>
-                <span className="text-yellow-500">&#9733;</span>
-                <span className="text-yellow-500">&#9733;</span>
-                <span className="text-gray-300">&#9733;</span>
+              <div className="flex justify-center mx-auto flex-row gap-1">
+                <img src={starActive} alt="star" className="w-[18px]" />
+                <img src={starActive} alt="star" className="w-[18px]" />
+                <img src={starActive} alt="star" className="w-[18px]" />
+                <img src={starActive} alt="star" className="w-[18px]" />
+                <img src={starInactive} alt="star" className="w-[18px]" />
               </div>
               <h6 className="font-monserat font-bold max-w-[238px] text-light-text-color xs:text-left md:text-center text-sm leading-[24px]">
                 Slate helps you see how many more days you need to work to reach
