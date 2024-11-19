@@ -4,10 +4,13 @@ import Input from '@/components/element/Input';
 import Button from '@/components/element/Button';
 import Dropdown from '@/components/element/Dropdown';
 import Card from '@/components/element/Card';
+import Pagination from '@/components/element/Pagination';
 
 const Shop: React.FC = () => {
   const [filter, setFilter] = useState<string>('');
   const [rangeValue, setRangeValue] = useState<number>(50);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const totalPages = 5;
 
   const options = [
     {
@@ -117,6 +120,13 @@ const Shop: React.FC = () => {
               price={6.48}
             />
           ))}
+        </div>
+        <div className="flex justify-center">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
         </div>
       </div>
     </div>
