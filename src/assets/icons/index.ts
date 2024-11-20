@@ -8,3 +8,6 @@ export { default as Brand3 } from './fa-brands-3.png';
 export { default as IconConcrete } from './concrete.svg';
 export { default as IconEasy } from './easy.svg';
 export { default as IconHack } from './hacks.svg';
+
+export { default as starActive } from './star-active.svg';
+export { default as starInactive } from './star-inactive.svg';
