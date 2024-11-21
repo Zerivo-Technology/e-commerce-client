@@ -1,13 +1,8 @@
 import Button from '@/components/element/Button';
 import Card from '@/components/element/Card';
+import BrandList from '@/components/element/BrandList';
 
 import {
-  HooliIcon,
-  AWSIcon,
-  RedditIcon,
-  StripeIcon,
-  Brand3,
-  LyftIcon,
   IconHack,
   IconEasy,
   IconConcrete,
@@ -139,14 +134,7 @@ const PagesUser = () => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-6 items-center mx-5 gap-[30px] py-14">
-        <img className="w-[102.99px]" src={HooliIcon} alt="" />
-        <img className="w-[102.99px]" src={LyftIcon} alt="" />
-        <img className="w-[102.99px]" src={Brand3} alt="" />
-        <img className="w-[102.99px]" src={StripeIcon} alt="" />
-        <img className="w-[102.99px]" src={AWSIcon} alt="" />
-        <img className="w-[102.99px]" src={RedditIcon} alt="" />
-      </div>
+      <BrandList />
 
       <div
         className="relative flex flex-col gap-2 md:flex-row md:max-h-[572px] max-h-none"
@@ -342,7 +330,7 @@ const PagesUser = () => {
             <span
               id="separator"
               className="hidden md:block border border-light-gray-2 h-[298px]"
-            ></span>
+            />
             <div className="flex flex-col justify-start items-center gap-5">
               <p className="text-disabled-text font-monserat text-center md:text-left">
                 Problems trying to resolve the conflict

@@ -5,7 +5,7 @@ export default {
     extend: {
       screens: {
         xs: '375px',
-      },
+    },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         playwrite: ['Playwrite SK', 'sans-serif'],

@@ -53,6 +53,11 @@ interface CardProps {
    * Class for the card for styling
    */
   cardClassName?: string;
+
+  /**
+   * Function to handle click events
+   */
+  onClick?: () => void;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -66,10 +71,12 @@ const Card: React.FC<CardProps> = ({
   titleClassName,
   descriptionClassName,
   cardClassName,
+  onClick,
 }) => {
   return (
     <div
       className={`w-[183px] font-monserat bg-white flex flex-col ${cardClassName}`}
+      onClick={onClick}
     >
       <div className="flex-shrink-0">
         <img
@@ -79,7 +86,11 @@ const Card: React.FC<CardProps> = ({
         />
       </div>
       <div className="p-4 text-center flex-grow">
-        <h3 className={`text-lg font-bold mb-2 ${titleClassName}`}>{title}</h3>
+        <h3
+          className={`text-lg font-bold mb-2 text-dark-background ${titleClassName}`}
+        >
+          {title}
+        </h3>
         {type === 'price' && (
           <div className="flex flex-row gap-2 items-center justify-center">
             {priceBefore && (

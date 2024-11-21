@@ -1,6 +1,7 @@
 import Loading from '@/components/element/Loading';
 import FooterUser from '@/components/user/Footer';
 import NavbarUser from '@/components/user/Navbar';
+import ProductDetail from '@/pages/user/shop/ProductDetail';
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -46,6 +47,14 @@ const UserRoot = () => {
             element={
               <Suspense fallback={<Loading />}>
                 <Shop />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/shop/clothing/detail/:title"
+            element={
+              <Suspense fallback={<Loading />}>
+                <ProductDetail />
               </Suspense>
             }
           />
