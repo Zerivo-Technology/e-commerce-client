@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from './Input';
 import Button from './Button';
+import Checkbox from './Checkbox';
 
 interface CartTotalsProps {
   /**
@@ -13,6 +14,9 @@ interface CartTotalsProps {
    */
   handleInputChange: (value: string | number) => void;
 
+  /**
+   * function to handle apply discount
+   */
   handleApplyDiscount: () => void;
 
   /**
@@ -29,6 +33,8 @@ interface CartTotalsProps {
     shippingFee: number;
     total: number;
   };
+
+  type?: 'delivery' | 'cart';
 }
 
 const CartTotals: React.FC<CartTotalsProps> = ({
@@ -37,6 +43,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({
   handleProceedToCheckout,
   handleApplyDiscount,
   totals,
+  type = 'cart',
 }) => {
   return (
     <div
@@ -54,6 +61,12 @@ const CartTotals: React.FC<CartTotalsProps> = ({
         useButton
         placeholder="Input voucher discount code"
       />
+      {type === 'delivery' && (
+        <div className="flex flex-row gap-6">
+          <Checkbox id='midtrans' label="Midtrans" useBorder radio />
+          <Checkbox id='cod' label="Cash On Delivery" useBorder radio />
+        </div>
+      )}
       <div className="flex flex-col">
         <div className="flex justify-between border-b py-2">
           <p>Subtotal</p>
@@ -73,7 +86,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({
         </div>
       </div>
       <Button
-        label="Proceed To Checkout"
+        label={type === 'delivery' ? 'Place Order' : 'Proceed to Checkout'}
         severity="primary"
         className="w-fit px-4 rounded-md font-bold ml-auto"
         onClick={handleProceedToCheckout}
