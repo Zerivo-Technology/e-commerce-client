@@ -45,6 +45,11 @@ interface InputProps {
    * Label for the button
    */
   buttonLabel?: string;
+
+  /**
+   * Function to call when the button is clicked
+   */
+  onSubmit?: () => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -57,6 +62,7 @@ const Input: React.FC<InputProps> = ({
   className,
   useButton = false,
   buttonLabel = 'Submit',
+  onSubmit,
 }) => {
   return useButton ? (
     <div className="flex flex-row items-center border rounded-md overflow-hidden font-monserat w-full">
@@ -74,6 +80,7 @@ const Input: React.FC<InputProps> = ({
       <button
         type="submit"
         className="bg-primary-color text-sm text-white px-5 py-3 md:py-5 hover:bg-blue-600 transition w-full md:w-auto"
+        onClick={onSubmit}
       >
         {buttonLabel}
       </button>
