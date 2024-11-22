@@ -35,6 +35,16 @@ interface InputProps {
    * Additional class names for the input
    */
   className?: string;
+
+  /**
+   * Use button with input
+   */
+  useButton?: boolean;
+
+  /**
+   * Label for the button
+   */
+  buttonLabel?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -45,8 +55,30 @@ const Input: React.FC<InputProps> = ({
   mandatory = false,
   type = 'text',
   className,
+  useButton = false,
+  buttonLabel = 'Submit',
 }) => {
-  return (
+  return useButton ? (
+    <div className="flex flex-row items-center border rounded-md overflow-hidden font-monserat w-full">
+      <input
+        type={type}
+        value={value}
+        required={mandatory}
+        onChange={(e) =>
+          onChange(type === 'range' ? Number(e.target.value) : e.target.value)
+        }
+        className={`px-4 py-3 md:py-5 flex-1 focus:outline-none text-sm ${className}`}
+        placeholder={placeholder}
+        style={{ width: width || '100%' }}
+      />
+      <button
+        type="submit"
+        className="bg-primary-color text-sm text-white px-5 py-3 md:py-5 hover:bg-blue-600 transition w-full md:w-auto"
+      >
+        {buttonLabel}
+      </button>
+    </div>
+  ) : (
     <input
       type={type}
       value={value}
