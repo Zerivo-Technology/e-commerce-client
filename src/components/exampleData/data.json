@@ -1,0 +1,54 @@
+{
+    "name": "product1",
+    "price": 100,
+    "thumbnail": "product1.jpg",
+    "images": [
+        {
+            "url": "product1a.jpg",
+            "alt": "product1a image"
+        },
+        {
+            "url": "product1b.jpg",
+            "alt": "product1b image"
+        },
+        {
+            "url": "product1c.jpg",
+            "alt": "product1c image"
+        }
+    ],
+    "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+    ],
+    "availabilty": true,
+    "shortDescription": "product1 short description",
+    "description": "product1 description",
+    "reviews": [
+        {
+            "userName": "user1",
+            "createdAt": "2021-01-01",
+            "review": "product1 review1",
+            "rating": 4
+        },
+        {
+            "userName": "user2",
+            "createdAt": "2021-01-02",
+            "review": "product1 review2",
+            "rating": 5
+        }
+    ],
+    "relatedProducts": [
+        {
+            "imgUrl": "product2.jpg",
+            "name": "product2",
+            "price": 200
+        },
+        {
+            "imgUrl": "product3.jpg",
+            "name": "product3",
+            "price": 300
+        }
+    ]
+}

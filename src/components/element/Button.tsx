@@ -1,4 +1,6 @@
 import React from 'react';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface ButtonProps {
   /**
@@ -30,6 +32,11 @@ interface ButtonProps {
    * Whether the button is outlined
    */
   outlined?: boolean;
+
+  /**
+   * The icon to display on the button
+   */
+  icon?: IconProp;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -39,6 +46,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   type,
   outlined = false,
+  icon,
 }) => {
   const getButtonClass = (severity: string = '', outlined: boolean) => {
     let baseClass = '';
@@ -67,10 +75,17 @@ const Button: React.FC<ButtonProps> = ({
       className={`btn font-monserat ${getButtonClass(
         severity,
         outlined
-      )} py-3 ${className}`}
+      )} py-3 ${className} ${icon ? 'hover:text-white' : ''}`}
       type={type}
       onClick={onClick}
     >
+      {icon && (
+        <FontAwesomeIcon
+          icon={icon}
+          color="#23A6F0"
+          className="hover:text-white"
+        />
+      )}
       {label}
     </button>
   );
