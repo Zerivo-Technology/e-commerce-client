@@ -1,9 +1,8 @@
 
-
 const PagesAdmin = () => {
-  return (
-    <div>PagesUser</div>
-  )
+    return (
+      <div>PagesAdmin</div>
+    )
 }
 
 export default PagesAdmin

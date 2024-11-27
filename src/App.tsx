@@ -1,7 +1,8 @@
-import UserRoot from "./routes/userRoot"
+import AdminRoot from "./routes/adminRoot"
+// import UserRoot from "./routes/userRoot"
 
 function App() {
-  return <UserRoot />
+  return <AdminRoot />
 }
 
 export default App

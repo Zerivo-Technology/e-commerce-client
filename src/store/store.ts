@@ -1,20 +1,31 @@
-import create from "zustand";
-import { StoreState } from "./acces";  // Import interface StoreState
+import { create } from 'zustand';
 
-const useStore = create<StoreState>((set : any) => ({
+interface StoreState {
+  token: string | null;
+  role: string | null;
+  email: string | null;
+  setToken: (token: string | null) => void;
+  removeToken: () => void;
+  setRole: (role: string | null) => void;
+  setEmail: (email: string | null) => void;
+}
+
+const useStore = create<StoreState>((set) => ({
   token: null,
-  setToken: (token: string | null) => set({ token }),
-  removeToken: () => set({ token: null }),
-
   role: null,
-  setRole: (role: string | null) => set({ role }),
-
   email: null,
-  setEmail: (email: string | null) => set({ email }),
+  
+  // Fungsi untuk set token
+  setToken: (token) => set({ token }),
+  
+  // Fungsi untuk menghapus token (logout)
+  removeToken: () => set({ token: null, role: null, email: null }),
 
-  data: null,
-  setData: (data: string | null) => set({ data }),
-  removeData: () => set({ data: null }),
+  // Fungsi untuk set role
+  setRole: (role) => set({ role }),
+
+  // Fungsi untuk set email
+  setEmail: (email) => set({ email }),
 }));
 
 export default useStore;

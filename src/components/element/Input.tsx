@@ -19,7 +19,7 @@ interface InputProps {
   /**
    * Function to call when the input value changes
    */
-  onChange?: (value: string | number) => void;
+  onChange?: (value: string) => void;
 
   /**
    * Set the width of the input
@@ -72,7 +72,7 @@ const Input: React.FC<InputProps> = ({
         required={mandatory}
         onChange={(e) =>
           onChange &&
-          onChange(type === 'range' ? Number(e.target.value) : e.target.value)
+          onChange(e.target.value)
         }
         className={`px-4 py-3 md:py-5 flex-1 focus:outline-none text-sm ${className}`}
         placeholder={placeholder}
@@ -93,7 +93,7 @@ const Input: React.FC<InputProps> = ({
       required={mandatory}
       onChange={(e) =>
         onChange &&
-        onChange(type === 'range' ? Number(e.target.value) : e.target.value)
+        onChange(e.target.value)
       }
       className={`${className} ${
         type === 'range'
