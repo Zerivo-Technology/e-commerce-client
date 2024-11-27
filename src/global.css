@@ -5,3 +5,7 @@
 .container {
     @apply w-[90%] max-w-[1000px]
 }
+
+.sidebar-menu {
+    @apply hover:bg-[#cdf463] h-12 w-full rounded-lg flex items-center gap-2 px-2 text-[#2f302f] font-poppins relative cursor-pointer
+}

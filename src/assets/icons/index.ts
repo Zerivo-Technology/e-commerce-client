@@ -11,3 +11,6 @@ export { default as IconHack } from './hacks.svg';
 
 export { default as starActive } from './star-active.svg';
 export { default as starInactive } from './star-inactive.svg';
+
+export { default as IconsShopping } from './shoping.png'
+export { default as IconsProfile } from './profile.png';

@@ -5,7 +5,7 @@ import Cart from '@/pages/user/shop/Cart';
 import DeliveryPayment from '@/pages/user/shop/DeliveryPayment';
 import ProductDetail from '@/pages/user/shop/ProductDetail';
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {  Routes, Route } from 'react-router-dom';
 
 const PagesUser = lazy(() => import('@/pages/user'));
 const LoginUser = lazy(() => import('@/pages/user/auth/Login'));
@@ -13,7 +13,7 @@ const Shop = lazy(() => import('@/pages/user/shop/Shop'));
 
 const UserRoot = () => {
   return (
-    <Router>
+   
       <div className="min-h-screen h-max w-full flex flex-col">
         {/* element Navbar */}
         <NavbarUser />
@@ -81,7 +81,6 @@ const UserRoot = () => {
         {/* Element Footer */}
         <FooterUser />
       </div>
-    </Router>
   );
 };
 
