@@ -16,7 +16,7 @@ export const Auth = {
     Login : (email : string, password : string) => 
         handleRequest(axios.post(`${baseUrl}/login`, { email, password })),
     Regis : (data : any) => 
-        handleRequest(axios.post(`${baseUrl}/register`, { data })),
+        handleRequest(axios.post(`${baseUrl}/register`, data )),
 }
 
 export const Admin = {
@@ -42,11 +42,18 @@ export const Category = {
             }
         })),
     CreateCategory: (data: any, token: any) =>
-        handleRequest(axios.post(`${baseUrl}/category`, { data }, { 
+        handleRequest(axios.post(`${baseUrl}/category`, data , { 
             headers: { 
                 Authorization: `Bearer ${token}` 
             } 
         })),
+    UpdateCategory: (id : any, data: any, token: any) =>
+        handleRequest(axios.put(`${baseUrl}/category/${id}`, data , { 
+            headers: { 
+                Authorization: `Bearer ${token}` 
+            } 
+        })),
+    
 }
 
 export const Product = {

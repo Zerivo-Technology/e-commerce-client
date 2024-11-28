@@ -1,4 +1,4 @@
-import InputFormik from "@/components/element/InputFormik";
+import FormModal from "@/components/element/FormModal";
 import ModalsTable from "@/components/element/ModalsTable";
 import DataTable from "@/components/element/TableData"
 import { Admin, Auth } from "@/middlewares/api";
@@ -6,7 +6,6 @@ import { Store } from "@/store/store";
 import { showToast } from "@/utils/alertUtils";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import { GridColDef, GridRowSelectionModel } from "@mui/x-data-grid";
-import { Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 
 const columns: GridColDef[] = [
@@ -19,7 +18,9 @@ const DataUser = () => {
     const { token } = Store.getState();
     const [data, setData] = useState([])
     const [rowSelectionModel, setRowSelectionModel] = useState<GridRowSelectionModel>([]);
-    const [initialValues, setInitialValues] = useState({ name: '', password: '', email: '', phoneNumber: '' });    
+    const initialValues = {
+        name: '', password: '', email: '', phoneNumber: ''
+    }  
 
     const handleSelectionChange = (newSelection: GridRowSelectionModel) => {
         setRowSelectionModel(newSelection);
@@ -38,7 +39,7 @@ const DataUser = () => {
         }
     }
 
-    const AddData = async (data : any) => {
+    const handleAddUser = async (data : any) => {
         try {
             console.log('Data yang dikirim ke API:', data);
             const response = await Auth.Regis(data)
@@ -73,39 +74,24 @@ const DataUser = () => {
         return errors;
     };
 
+
     return (
         <div className="flex flex-1 flex-col w-full gap-4  mb-10 font-poppins">
             <div className="h-14 w-full flex items-center justify-end">
                 <ModalsTable icons={faAdd} title="Add new user" type="btn-table" >
                     <>
                         <h1>Add New User</h1>
-                        <div className="flex flex-col gap-2">
-                            <Formik
-                                enableReinitialize={true}
-                                initialValues={initialValues}
-                                validate={validate}
-                                onSubmit={(values, {resetForm}) => {
-                                    resetForm();
-                                    AddData(values);
-                                }}
-                            >
-                                {({errors}) => (
-                                    <Form className="flex flex-col gap-2">
-                                        <InputFormik title="Name" name="name" type="text" />
-                                        {errors.name && <div className="text-red-500 text-[10px]">{errors.name}</div>}
-                                        <InputFormik title="Password" name="password" type="password" />
-                                        {errors.password && <div className="text-red-500 text-[10px]">{errors.password}</div>}
-                                        <InputFormik title="Email" name="email" type="email" />
-                                        {errors.email && <div className="text-red-500 text-[10px]">{errors.email}</div>}
-                                        <InputFormik title="Phone" name="phoneNumber" type="text" />
-                                        {errors.phoneNumber && <div className="text-red-500 text-[10px]">{errors.phoneNumber}</div>}
-                                        <button type="submit" className="w-full h-10 bg-blue-500 rounded my-5 text-white">
-                                            Submit
-                                        </button>
-                                    </Form>
-                                )}
-                            </Formik>
-                        </div>
+                        <FormModal
+                            initialValues={initialValues}
+                            validate={validate}
+                            onSubmit={handleAddUser}
+                            fields={[
+                                { title: "Name", name: "name", type: "text" },
+                                { title: "Password", name: "password", type: "password" },
+                                { title: "Email", name: "email", type: "email" },
+                                { title: "Phone", name: "phoneNumber", type: "text" },
+                            ]}
+                        />
                     </>
                 </ModalsTable>
             </div>
